@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^4.1.15",
-    "babel-plugin-styled-components": "^1.10.0"
+    "babel-plugin-styled-components": "^1.10.0",
+    "babel-plugin-typescript-to-proptypes": "^0.17.1"
   }
 }

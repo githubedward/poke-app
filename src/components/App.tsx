@@ -5,13 +5,17 @@ import Header from "./Header/index";
 import SearchList from "./SearchList/index";
 import Preview from "./Preview/index";
 
-export default class App extends React.Component<object, object> {
+interface Props {}
+
+interface State {}
+
+export default class App extends React.Component<Props, State> {
   render() {
     return (
       <Container>
         <GlobalStyles />
         <Header />
-        <main className="main">
+        <main>
           <SearchList />
           <Preview />
         </main>

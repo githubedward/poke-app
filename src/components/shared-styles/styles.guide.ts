@@ -20,6 +20,7 @@ export const color = {
   lightgray: `#f1f1f1`,
   extralightgray: `#f9f9f9`,
 
-  inv_theme: `rgb(232, 124, 48)`,
-  theme: `rgb(73, 162, 220)`
+  theme1: `#fff6A4`,
+  theme2: `#e65a41`,
+  theme3: `#c52018`
 };
