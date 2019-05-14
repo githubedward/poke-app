@@ -5,7 +5,7 @@ export default styled.div`
   ${flexCenter}
   flex-direction: column;
 
-  .main {
+  main {
     ${flexCenter}
   }
 `;

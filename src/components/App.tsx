@@ -1,4 +1,5 @@
 import React from "react";
+import GlobalStyles from "./shared-styles/styles.global";
 import Container from "./styles.app";
 import Header from "./Header/index";
 import SearchList from "./SearchList/index";
@@ -8,11 +9,12 @@ export default class App extends React.Component<object, object> {
   render() {
     return (
       <Container>
+        <GlobalStyles />
         <Header />
-        <div className="main">
+        <main className="main">
           <SearchList />
           <Preview />
-        </div>
+        </main>
       </Container>
     );
   }
