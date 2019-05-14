@@ -1,9 +1,15 @@
 import React from "react";
 import Container from "./styles.searchbox";
 
-const SearchBox: React.FC = (props: object) => (
+interface SearchBoxProps {
+  onTextChanged: () => void;
+}
+
+const SearchBox: React.FC = (props: SearchBoxProps) => (
   <Container>
-    <input className="search_input" />
+    <form>
+      <input className="search_input" onChange={props.onTextChanged} />
+    </form>
   </Container>
 );
 

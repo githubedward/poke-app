@@ -4,33 +4,57 @@ import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
 import API from "../../services/api";
 
-interface Props {}
+interface SearchProps {}
 
-interface State {
-  pokemonList: any[];
+type PokemonList = {
+  id: number;
+  name: string;
+  sprite: string;
+  types: Array<string>;
+};
+
+interface SearchState {
+  pokemonList: Array<PokemonList>;
   results: any[];
-  suggestions: any[];
+  suggestions: Array<PokemonList>;
 }
 
-export default class SearchList extends React.Component<Props, State> {
-  state: State = {
+export default class SearchList extends React.Component<
+  SearchProps,
+  SearchState
+> {
+  state = {
     pokemonList: [],
     results: [],
     suggestions: []
   };
 
   async componentDidMount() {
-    const list = await API.getPokemonList(10);
-    this.setState(state => ({
-      pokemonList: state.pokemonList.concat(list)
+    const pokemonList = (await API.getPokemonList(10)) as PokemonList[];
+    this.setState(() => ({
+      pokemonList
     }));
   }
+
+  onTextChanged = (e: React.FormEvent<HTMLFormElement>) => {
+    const value = e.target.value;
+    let suggestions: Array<PokemonList> = [];
+    if (value.length > 0) {
+      const regex = new RegExp(`^${value}`, `i`);
+      suggestions = this.state.pokemonList.filter((p: PokemonList) =>
+        regex.test(p.name)
+      );
+    }
+    this.setState(() => ({
+      suggestions
+    }));
+  };
 
   render() {
     return (
       <Container>
         <h1>SearchList</h1>
-        <SearchBox />
+        <SearchBox onTextChanged={this.onTextChanged} />
         <SearchResults />
       </Container>
     );
