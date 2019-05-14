@@ -17,7 +17,8 @@ export default styled.div`
       font-weight: ${fWeight.light};
 
       :focus {
-        ${boxShadowBotTight(color.gray)}
+        ${boxShadowBotTight(color.theme2)};
+        border: 1px solid ${color.theme2};
       }
     }
   }

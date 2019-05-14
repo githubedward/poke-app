@@ -7,5 +7,6 @@ export default styled.div`
   flex-direction: column;
   margin: 3rem 0rem;
   padding: 2rem;
+  width: 100%;
   ${boxShadowAll(color.extralightgray)}
 `;

@@ -20,7 +20,7 @@ export const color = {
   lightgray: `#f1f1f1`,
   extralightgray: `#f9f9f9`,
 
-  theme1: `#fff6A4`,
-  theme2: `#e65a41`,
-  theme3: `#c52018`
+  theme1: `#FFF06A`,
+  theme2: `#F62D14`,
+  theme3: `#E19720`
 };

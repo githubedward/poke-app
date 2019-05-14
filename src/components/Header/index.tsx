@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "./styles.index";
+import Container from "./styles.header";
 
 const Header: React.FC = (props: object) => (
   <Container>
