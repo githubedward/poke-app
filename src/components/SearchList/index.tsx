@@ -4,14 +4,14 @@ import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
 import API from "../../services/api";
 
-type TPokemon = {
+export type TPokemon = {
   id: number;
   name: string;
   sprite: string;
   types: Array<string>;
 };
 
-type TFormElem = React.FormEvent<HTMLFormElement>;
+// type TFormElem = React.FormEvent<HTMLFormElement>;
 
 export default function SearchList(): JSX.Element {
   const [list, setList] = useState<TPokemon[]>([]);
@@ -36,7 +36,11 @@ export default function SearchList(): JSX.Element {
     let newSuggestions: TPokemon[] = [];
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, `i`);
-      newSuggestions = list.filter((p: TPokemon) => regex.test(p.name)).sort((p1: TPokemon, p2: TPokemon) => p1.name - p2.name);
+      newSuggestions = list
+        .filter((p: TPokemon) => regex.test(p.name))
+        .sort(
+          (p1: TPokemon, p2: TPokemon) => (p1.name as any) - (p2.name as any)
+        );
       setSuggestions(newSuggestions);
     }
   };
@@ -44,7 +48,7 @@ export default function SearchList(): JSX.Element {
   return (
     <Container>
       <h1>SearchList</h1>
-      <SearchBox onTextChanged={onTextChanged} />
+      <SearchBox onTextChanged={onTextChanged} suggestions={suggestions} />
       <SearchResults />
     </Container>
   );
