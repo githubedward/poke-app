@@ -11,7 +11,6 @@ export default function Preview(props: Props): JSX.Element {
   return (
     <Container>
       <h1>Preview</h1>
-
       {pokemon && (
         <div className="preview">
           <img src={pokemon.sprite} alt="pokemon-sprite" />

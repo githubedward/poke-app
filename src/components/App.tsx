@@ -31,7 +31,7 @@ export default function App(): JSX.Element {
   }, [list, preview]);
 
   const onSetPreview = (value: TPokemon) => {
-    if (value.id) setPreview(value);
+    if (value) setPreview(value);
   };
 
   return (

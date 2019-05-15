@@ -29,6 +29,8 @@ export default function SearchList(props: IProps): JSX.Element {
   const onSelectSuggestion = (value: number | undefined) => {
     if (value) {
       onSetPreview(value);
+    } else {
+      onSetPreview(null);
     }
     setResults(suggestions);
     setSuggestions([]);
