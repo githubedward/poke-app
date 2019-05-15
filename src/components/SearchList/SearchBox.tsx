@@ -1,16 +1,14 @@
 import React from "react";
 import Container from "./styles.searchbox";
 
-interface SearchBoxProps {
-  onTextChanged: () => void;
+type SearchBoxProps = {
+  onTextChanged: any;
 }
 
-const SearchBox: React.FC = (props: SearchBoxProps) => (
-  <Container>
-    <form>
-      <input className="search_input" onChange={props.onTextChanged} />
-    </form>
-  </Container>
-);
-
-export default SearchBox;
+export default function SearchBox(props: SearchBoxProps): JSX.Element {
+  return <Container>
+  <form className="search" /* onSubmit={} */>
+    <input className="search_input" onChange={props.onTextChanged} />
+  </form>
+</Container>
+} 

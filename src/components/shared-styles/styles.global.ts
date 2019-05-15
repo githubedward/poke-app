@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
-import { color, fSize } from "./styles.guide";
+import { color, fSize, fWeight } from "./styles.guide";
 
 export default createGlobalStyle`
   body {
@@ -24,9 +24,9 @@ export const boxShadowAll = (color: string) => css`
 `;
 
 export const boxShadowBotTight = (color: string) => css`
-  -webkit-box-shadow: 0px 1px 2px 1px ${color};
-  -moz-box-shadow: 0px 1px 2px 1px ${color};
-  box-shadow: 0px 1px 2px 1px ${color};
+  -webkit-box-shadow: 0px 1px 1px 1px ${color};
+  -moz-box-shadow: 0px 1px 1px 1px ${color};
+  box-shadow: 0px 1px 1px 1px ${color};
 `;
 
 export const flexCenter = css`
@@ -43,16 +43,17 @@ export const cta_button = css`
   ${flexCenter};
   width: auto;
   height: (40 / 16) + "rem";
-  border-radius: 2px;
+  border-radius: 4px;
   background-color: ${color.theme2};
   border: 1px solid ${color.theme2};
   font-size: ${fSize.t4};
   padding: 0.5rem 1rem;
   outline: none;
   color: white;
+  font-weight: ${fWeight.medium};
 
   :hover {
-    border: 1px solid ${color.theme1};
+    border: 2px solid ${color.theme2};
   }
 
   :active {

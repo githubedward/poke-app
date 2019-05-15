@@ -5,6 +5,7 @@ import { color, fWeight, fSize } from "../shared-styles/styles.guide";
 export default styled.div`
   ${flexCenter};
   flex-direction: column;
+  padding: 0 2rem;
 
   .search {
     &_input {
@@ -17,8 +18,8 @@ export default styled.div`
       font-weight: ${fWeight.light};
 
       :focus {
-        ${boxShadowBotTight(color.theme1)};
-        border: 1px solid ${color.theme1};
+        ${boxShadowBotTight(color.gray)};
+        border: 1px solid ${color.gray};
       }
     }
   }

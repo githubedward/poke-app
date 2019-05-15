@@ -10,25 +10,29 @@ export default styled.div`
   ${flexCenter};
   justify-content: space-between;
   width: 100%;
-  background-color: ${color.theme1};
+  background-color: ${color.superdarkgray};
 
-  .header_title {
-    ${flexCenter};
-    padding-left: 2rem;
-    span {
-      ${font_luckyGuy};
-      color: black;
-      font-size: 2.5rem;
-      padding-top: 0.75rem;
-    }
-    h1 {
-      margin-left: 0.75rem;
-      font-weight: ${fWeight.light};
-    }
-  }
+  .header {
+    &_title {
+      ${flexCenter};
+      padding-left: 3rem;
 
-  .header_button {
-    margin-right: 2rem;
-    ${cta_button};
+      span {
+        ${font_luckyGuy};
+        color: ${color.theme1};
+        font-size: 2.5rem;
+        padding-top: 0.75rem;
+      }
+      h1 {
+        margin-left: 0.75rem;
+        font-weight: ${fWeight.light};
+        color: white;
+      }
+    }
+
+    &_button {
+      margin-right: 3rem;
+      ${cta_button};
+    }
   }
 `;

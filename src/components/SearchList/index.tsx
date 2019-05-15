@@ -1,62 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Container from "./styles.searchlist";
 import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
 import API from "../../services/api";
 
-interface SearchProps {}
-
-type PokemonList = {
+type TPokemon = {
   id: number;
   name: string;
   sprite: string;
   types: Array<string>;
 };
 
-interface SearchState {
-  pokemonList: Array<PokemonList>;
-  results: any[];
-  suggestions: Array<PokemonList>;
-}
+type TFormElem = React.FormEvent<HTMLFormElement>;
 
-export default class SearchList extends React.Component<
-  SearchProps,
-  SearchState
-> {
-  state = {
-    pokemonList: [],
-    results: [],
-    suggestions: []
-  };
+export default function SearchList(): JSX.Element {
+  const [list, setList] = useState<TPokemon[]>([]);
+  // const [results, setResults] = useState<TPokemon[]>([]);
+  const [suggestions, setSuggestions] = useState<TPokemon[]>([]);
 
-  async componentDidMount() {
-    const pokemonList = (await API.getPokemonList(10)) as PokemonList[];
-    this.setState(() => ({
-      pokemonList
-    }));
-  }
+  useEffect(() => {
+    if (list.length === 0) {
+      const getPokemons = async () => {
+        const pokemonList = (await API.getPokemonList(10)) as TPokemon[];
+        setList(pokemonList);
+      };
+      getPokemons();
+    }
+    // return () => {
+    //   effect;
+    // };
+  }, [list]);
 
-  onTextChanged = (e: React.FormEvent<HTMLFormElement>) => {
+  const onTextChanged = (e: any) => {
     const value = e.target.value;
-    let suggestions: Array<PokemonList> = [];
+    let newSuggestions: TPokemon[] = [];
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, `i`);
-      suggestions = this.state.pokemonList.filter((p: PokemonList) =>
-        regex.test(p.name)
-      );
+      newSuggestions = list.filter((p: TPokemon) => regex.test(p.name)).sort((p1: TPokemon, p2: TPokemon) => p1.name - p2.name);
+      setSuggestions(newSuggestions);
     }
-    this.setState(() => ({
-      suggestions
-    }));
   };
 
-  render() {
-    return (
-      <Container>
-        <h1>SearchList</h1>
-        <SearchBox onTextChanged={this.onTextChanged} />
-        <SearchResults />
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <h1>SearchList</h1>
+      <SearchBox onTextChanged={onTextChanged} />
+      <SearchResults />
+    </Container>
+  );
 }

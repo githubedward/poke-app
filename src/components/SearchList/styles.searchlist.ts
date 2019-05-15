@@ -8,5 +8,6 @@ export default styled.div`
   margin: 3rem 0rem;
   padding: 2rem;
   width: 100%;
+  max-width: 50rem;
   ${boxShadowAll(color.extralightgray)}
 `;
