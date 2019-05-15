@@ -2,18 +2,9 @@ import styled, {
   StyledFunction,
   ThemedStyledFunction
 } from "styled-components";
-import {
-  flexCenter,
-  boxShadowBotTight,
-  borderBox
-} from "../shared-styles/styles.global";
+import { flexCenter, boxShadowBotTight } from "../shared-styles/styles.global";
 import { color, fWeight, fSize } from "../shared-styles/styles.guide";
-// import SearchBox from "./SearchBox"
-
-// const withProps = <U>() => <P, T, O>(fn: ThemedStyledFunction<P, T, O>) =>
-//   fn as ThemedStyledFunction<P & U, T, O & U>;
-
-/* const Container =  */
+import { fadeIn } from "../shared-styles/styles.animation";
 
 export default styled.div`
   ${flexCenter};
@@ -27,7 +18,7 @@ export default styled.div`
     ${boxShadowBotTight(color.gray)};
 
     &_input {
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem;
       border: none;
       border-radius: 5px;
       outline: none;
@@ -39,8 +30,6 @@ export default styled.div`
 
       :focus {
         font-style: italic;
-        /* border-bottom: 1px dashed ${color.lightgray}; */
-        /* border-radius: 5px 5px 0 0; */
       }
 
       ::placeholder {
@@ -54,33 +43,43 @@ export default styled.div`
       width: 100%;
 
       li {
+        ${fadeIn};
         ${flexCenter};
         justify-content: space-between;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 2rem;
         list-style: none;
+        color: ${color.darkgray};
         cursor: pointer;
-
-        /* :first-child {
-          padding-top: 0.5rem;
-        } */
 
         :last-child {
           border-radius: 0 0 5px 5px;
           border-top: 1px dashed ${color.lightgray};
           justify-content: center;
-          padding: .75rem 0;
+          padding: 0.75rem 0;
         }
 
         :hover {
           background-color: ${color.lightgray};
           text-decoration: underline;
           font-weight: bold;
+          color: ${color.superdarkgray};
+
+          img {
+            opacity: 1;
+          }
+
+          div {
+            p {
+              font-weight: ${fWeight.light};
+            }
+          }
         }
 
         div {
           ${flexCenter};
 
           img {
+            opacity: 0.5;
             height: 3rem;
             margin-right: 1rem;
             padding: 0px;
@@ -90,12 +89,9 @@ export default styled.div`
         div {
           p {
             font-weight: ${fWeight.lighter};
-            color: ${color.darkgray};
           }
         }
       }
     }
   }
 `;
-
-// export default Container;

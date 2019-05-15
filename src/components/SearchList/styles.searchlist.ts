@@ -9,5 +9,6 @@ export default styled.div`
   width: 60%;
   min-width: 20rem;
   /* max-width: 30rem; */
-  ${boxShadowAll(color.extralightgray)}
+  border: 1px solid ${color.extralightgray};
+  border-radius: 10px;
 `;

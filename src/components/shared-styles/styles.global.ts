@@ -66,3 +66,26 @@ export const cta_button = css`
     border: 1px solid ${color.theme2};
   }
 `;
+
+export const button = (pBG: string, pBorder: string, pColor: string) => css`
+  ${flexCenter};
+  width: auto;
+  height: (40 / 16) + "rem";
+  border-radius: 4px;
+  background-color: ${pBG};
+  border: 1px solid ${pBorder};
+  font-size: ${fSize.t4};
+  padding: 0.5rem 1rem;
+  outline: none;
+  color: ${pColor};
+
+  :hover {
+    border: 2px solid ${pBorder};
+    font-weight: bold;
+  }
+
+  :active {
+    border: 1px solid ${pBorder};
+    font-weight: normal;
+  }
+`;
