@@ -6,16 +6,17 @@ import {
 } from "../shared-styles/styles.global";
 import { color, fWeight } from "../shared-styles/styles.guide";
 
-export default styled.div`
+export default styled.header`
   ${flexCenter};
   justify-content: space-between;
   width: 100%;
   background-color: ${color.superdarkgray};
+  padding: 0.5rem 0;
 
   .header {
     &_title {
       ${flexCenter};
-      padding-left: 3rem;
+      padding: 0 3rem;
 
       span {
         ${font_luckyGuy};

@@ -15,40 +15,46 @@ export type TPokemon = {
 
 export default function SearchList(): JSX.Element {
   const [list, setList] = useState<TPokemon[]>([]);
-  // const [results, setResults] = useState<TPokemon[]>([]);
+  const [results, setResults] = useState<TPokemon[]>([]);
   const [suggestions, setSuggestions] = useState<TPokemon[]>([]);
 
   useEffect(() => {
     if (list.length === 0) {
       const getPokemons = async () => {
-        const pokemonList = (await API.getPokemonList(10)) as TPokemon[];
+        const pokemonList = (await API.getPokemonList(20)) as TPokemon[];
         setList(pokemonList);
       };
       getPokemons();
     }
     // return () => {
     //   effect;
-    // };
+    // };value
   }, [list]);
+
+  const onSelectSuggestion = (value: any) => {};
 
   const onTextChanged = (e: any) => {
     const value = e.target.value;
     let newSuggestions: TPokemon[] = [];
-    if (value.length > 0) {
+    if (value.length > 0 && /^[a-zA-Z]+$/.test(value)) {
       const regex = new RegExp(`^${value}`, `i`);
       newSuggestions = list
         .filter((p: TPokemon) => regex.test(p.name))
         .sort(
           (p1: TPokemon, p2: TPokemon) => (p1.name as any) - (p2.name as any)
         );
-      setSuggestions(newSuggestions);
     }
+    setSuggestions(newSuggestions);
   };
 
   return (
     <Container>
       <h1>SearchList</h1>
-      <SearchBox onTextChanged={onTextChanged} suggestions={suggestions} />
+      <SearchBox
+        onTextChanged={onTextChanged}
+        suggestions={suggestions}
+        active={suggestions.length > 0}
+      />
       <SearchResults />
     </Container>
   );

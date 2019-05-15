@@ -1,16 +1,15 @@
 import styled from "styled-components";
-import { flexCenter } from "./shared-styles/styles.global";
+import { flexCenter, borderBox } from "./shared-styles/styles.global";
 
 export default styled.div`
   ${flexCenter}
   flex-direction: column;
 
   main {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
     ${flexCenter};
+    ${borderBox};
+    flex-wrap: wrap;
     width: 100%;
-    padding: 0 2rem;
+    padding: 3rem;
   }
 `;

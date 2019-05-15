@@ -7,4 +7,5 @@ import {
 
 export default styled.div`
   ${flexCenter};
+  width: 20rem;
 `;

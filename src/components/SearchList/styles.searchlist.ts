@@ -5,9 +5,9 @@ import { color } from "../shared-styles/styles.guide";
 export default styled.div`
   ${flexCenter}
   flex-direction: column;
-  margin: 3rem 0rem;
-  padding: 2rem;
-  width: 100%;
-  max-width: 50rem;
+  padding: 2rem 3rem;
+  width: 60%;
+  min-width: 20rem;
+  /* max-width: 30rem; */
   ${boxShadowAll(color.extralightgray)}
 `;

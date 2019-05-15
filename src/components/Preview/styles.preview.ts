@@ -3,4 +3,5 @@ import { flexCenter } from "../shared-styles/styles.global";
 
 export default styled.div`
   ${flexCenter};
+  width: 40%;
 `;

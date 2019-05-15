@@ -2,7 +2,7 @@ import { createGlobalStyle, css } from "styled-components";
 import { color, fSize, fWeight } from "./styles.guide";
 
 export default createGlobalStyle`
-  body {
+  * {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -15,6 +15,12 @@ export default createGlobalStyle`
   button, a {
     cursor: pointer;
   }
+`;
+
+export const borderBox = css`
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 `;
 
 export const boxShadowAll = (color: string) => css`
