@@ -4,23 +4,16 @@ import Container from "./styles.app";
 import Header from "./Header/index";
 import SearchList from "./SearchList/index";
 import Preview from "./Preview/index";
-import API from "../services/api";
-
-export type TPokemon = {
-  id: number;
-  name: string;
-  sprite: string;
-  types: Array<string>;
-};
+import API, { IPokemonDetails, IPokemonGen } from "../services/api";
 
 export default function App(): JSX.Element {
-  const [list, setList] = useState<TPokemon[]>([]);
-  const [preview, setPreview] = useState<TPokemon | null>(null);
+  const [list, setList] = useState<IPokemonGen[]>([]);
+  const [preview, setPreview] = useState<IPokemonGen | null>(null);
 
   useEffect(() => {
     if (list.length === 0) {
       const getPokemons = async () => {
-        const pokemonList = (await API.getPokemonList(150)) as TPokemon[];
+        const pokemonList = (await API.getPokemonList(150)) as IPokemonGen[];
         setList(pokemonList);
       };
       getPokemons();
@@ -30,8 +23,11 @@ export default function App(): JSX.Element {
     // };value
   }, [list, preview]);
 
-  const onSetPreview = (value: TPokemon) => {
-    if (value) setPreview(value);
+  const onSetPreview = async (id: number) => {
+    if (id) {
+      const pokemonObj = (await API.getPokemon(id)) as IPokemonDetails;
+      setPreview(pokemonObj);
+    }
   };
 
   return (

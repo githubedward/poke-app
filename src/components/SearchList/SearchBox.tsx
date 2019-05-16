@@ -1,16 +1,20 @@
 import React from "react";
 import Container from "./styles.searchbox";
-import { TPokemon } from "../App";
+import { IPokemonGen } from "../../services/api";
 
 interface IProps {
   onTextChanged: any;
   onSelectSuggestion: any;
-  suggestions: Array<TPokemon>;
+  suggestions: Array<IPokemonGen>;
   input: string;
 }
 
-export default function SearchBox(props: IProps): JSX.Element {
-  const { suggestions, onSelectSuggestion, onTextChanged, input } = props;
+export default function SearchBox({
+  suggestions,
+  onSelectSuggestion,
+  onTextChanged,
+  input
+}: IProps): JSX.Element {
   const isSuggestions = suggestions.length > 0;
   return (
     <Container>
@@ -23,10 +27,11 @@ export default function SearchBox(props: IProps): JSX.Element {
         />
         <ul className="search_suggestions">
           {isSuggestions &&
-            suggestions.map((pokemon: TPokemon) => (
+            suggestions.map((pokemon: IPokemonGen, index: number) => (
               <Suggestion
                 pokemon={pokemon}
                 onSelectSuggestion={onSelectSuggestion}
+                key={index}
               />
             ))}
           {isSuggestions && (
@@ -40,12 +45,12 @@ export default function SearchBox(props: IProps): JSX.Element {
 
 // Sub component
 type TSubProps = {
-  pokemon: TPokemon;
+  pokemon: IPokemonGen;
   onSelectSuggestion: any;
 };
 
 const Suggestion = ({ pokemon, onSelectSuggestion }: TSubProps) => (
-  <li key={pokemon.id} onClick={() => onSelectSuggestion(pokemon)}>
+  <li key={pokemon.id} onClick={() => onSelectSuggestion(pokemon.id)}>
     <div>
       <img src={pokemon.sprite} alt="pokemon-sprite" />
       <div>{pokemon.name}</div>

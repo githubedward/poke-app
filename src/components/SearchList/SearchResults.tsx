@@ -1,9 +1,9 @@
 import React from "react";
 import Container from "./styles.searchresults";
-import { TPokemon } from "../App";
+import { IPokemonGen } from "../../services/api";
 
 interface IProps {
-  results: TPokemon[];
+  results: IPokemonGen[];
   onPreview: any;
 }
 
@@ -13,7 +13,7 @@ export default function Results(props: IProps): JSX.Element {
     <Container>
       {results.length > 0 && (
         <ul>
-          {results.map((result: TPokemon) => (
+          {results.map((result: IPokemonGen) => (
             <li key={result.id} className="result">
               <div className="result_left">
                 <img src={result.sprite} alt="pokemon-sprite" />
@@ -29,7 +29,7 @@ export default function Results(props: IProps): JSX.Element {
               <button
                 className="result_right"
                 type="button"
-                onClick={() => onPreview(result)}
+                onClick={() => onPreview(result.id)}
               >
                 Select
               </button>

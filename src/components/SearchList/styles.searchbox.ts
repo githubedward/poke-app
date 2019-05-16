@@ -30,6 +30,10 @@ export default styled.div`
 
       :focus {
         font-style: italic;
+
+        ::placeholder {
+          color: ${color.superdarkgray};
+        }
       }
 
       ::placeholder {

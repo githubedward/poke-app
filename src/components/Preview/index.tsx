@@ -1,13 +1,12 @@
 import React from "react";
 import Container from "./styles.preview";
-import { TPokemon } from "../App";
+import { IPokemonGen } from "../../services/api";
 
 interface Props {
-  pokemon: TPokemon | null;
+  pokemon: IPokemonGen | null;
 }
 
-export default function Preview(props: Props): JSX.Element {
-  const { pokemon } = props;
+export default function Preview({ pokemon }: Props): JSX.Element {
   return (
     <Container>
       <h1>Preview</h1>

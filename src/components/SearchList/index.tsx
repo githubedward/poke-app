@@ -2,43 +2,41 @@ import React, { useState } from "react";
 import Container from "./styles.searchlist";
 import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
-import { TPokemon } from "../App";
+import { IPokemonGen } from "../../services/api";
 
 interface IProps {
-  list: TPokemon[];
+  list: IPokemonGen[];
   onSetPreview: any;
 }
 
 export default function SearchList(props: IProps): JSX.Element {
   const { list, onSetPreview } = props;
-  const [results, setResults] = useState<TPokemon[]>([]);
-  const [suggestions, setSuggestions] = useState<TPokemon[]>([]);
+  const [results, setResults] = useState<IPokemonGen[]>([]);
+  const [suggestions, setSuggestions] = useState<IPokemonGen[]>([]);
   const [input, setInput] = useState<string>("");
 
   const onTextChanged = (e: any) => {
     const value = e.target.value;
-    let newSuggestions: TPokemon[] = [];
+    let newSuggestions: IPokemonGen[] = [];
     if (value.length > 0 && /^[a-zA-Z]+$/.test(value)) {
       const regex = new RegExp(`^${value}`, `i`);
-      newSuggestions = list.filter((p: TPokemon) => regex.test(p.name));
+      newSuggestions = list.filter((p: IPokemonGen) => regex.test(p.name));
     }
     setSuggestions(newSuggestions);
     setInput(value);
   };
 
-  const onSelectSuggestion = (value: number | undefined) => {
-    if (value) {
-      onSetPreview(value);
-    } else {
-      onSetPreview(null);
+  const onSelectSuggestion = (value: any) => {
+    if (value.id) {
+      onSetPreview(value.id);
     }
     setResults(suggestions);
     setSuggestions([]);
     setInput("");
   };
 
-  const onPreview = (value: TPokemon) => {
-    onSetPreview(value);
+  const onPreview = (id: number) => {
+    onSetPreview(id);
     setSuggestions([]);
     setInput("");
   };
