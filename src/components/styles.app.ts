@@ -8,7 +8,7 @@ export default styled.div`
   main {
     ${flexCenter};
     ${borderBox};
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     width: 100%;
     padding: 3rem;
   }

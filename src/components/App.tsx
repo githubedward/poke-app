@@ -8,7 +8,7 @@ import API, { IPokemonDetails, IPokemonGen } from "../services/api";
 
 export default function App(): JSX.Element {
   const [list, setList] = useState<IPokemonGen[]>([]);
-  const [preview, setPreview] = useState<IPokemonGen | null>(null);
+  const [preview, setPreview] = useState<IPokemonDetails | null>(null);
 
   useEffect(() => {
     if (list.length === 0) {

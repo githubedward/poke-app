@@ -1,9 +1,9 @@
 import React from "react";
 import Container from "./styles.preview";
-import { IPokemonGen } from "../../services/api";
+import { IPokemonDetails } from "../../services/api";
 
 interface Props {
-  pokemon: IPokemonGen | null;
+  pokemon: IPokemonDetails | null;
 }
 
 export default function Preview({ pokemon }: Props): JSX.Element {
@@ -14,10 +14,19 @@ export default function Preview({ pokemon }: Props): JSX.Element {
         <div className="preview">
           <img src={pokemon.sprite} alt="pokemon-sprite" />
           <div>
-            <div>{pokemon.name}</div>
-            <p>{`[${pokemon.types.join(", ")}]`}</p>
+            <div>id: {pokemon.id}</div>
+            <div>name: {pokemon.name}</div>
+            <div>height: {pokemon.height}</div>
+            <div>types: {`[${pokemon.types.join(", ")}]`}</div>
+            {Object.keys(pokemon.stats).map((stat: string, index: number) => {
+              return (
+                <div key={index}>{`${stat}: ${
+                  Object.values(pokemon.stats)[index]
+                }`}</div>
+              );
+            })}
           </div>
-          <button>I CHOOSE YOU!</button>
+          {/* <button>I CHOOSE YOU!</button> */}
         </div>
       )}
     </Container>
