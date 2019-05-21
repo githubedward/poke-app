@@ -1,7 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Poke App
 
-## Available Scripts
+> A simple app where you can search using an autocomplete search bar within a certain number range you provide
+> Status: currently in development
 
-In the project directory, you can run:
+### Tech Used
 
-### `npm start`
+- React + Hooks
+- Typescript
+- Styled-Components (CSS in JS)
+- Axios (http request)
