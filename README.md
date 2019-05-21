@@ -1,6 +1,6 @@
-# Pinit App
+# Poke App
 
-> Pokemon app where you can search using an autocomplete search bar within a certain number range you provide
+> A simple app where you can search using an autocomplete search bar within a certain number range you provide
 > Status: currently in development
 
 ### Tech Used
