@@ -3,12 +3,12 @@ import Container from "./styles.header";
 
 const Header: React.FC = (props: object) => (
   <Container>
-    <div className="header_title">
+    <div className="header-title">
       <span>Pokemon Search</span>
     </div>
-    <button className="header_button" type="button">
+    {/* <button className="header-button" type="button">
       Set Pokemon Count
-    </button>
+    </button> */}
   </Container>
 );
 

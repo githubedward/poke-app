@@ -5,6 +5,7 @@ import { color } from "../shared-styles/styles.guide";
 export default styled.div`
   ${flexCenter}
   flex-direction: column;
+
   padding: 2rem 3rem;
   width: 60%;
   min-width: 20rem;

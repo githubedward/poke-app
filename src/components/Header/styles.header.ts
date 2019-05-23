@@ -8,15 +8,16 @@ import { color, fWeight } from "../shared-styles/styles.guide";
 
 export default styled.header`
   ${flexCenter};
-  justify-content: space-between;
+  /* justify-content: space-between; */
   width: 100%;
   background-color: ${color.superdarkgray};
   padding: 0.5rem 0;
 
   .header {
-    &_title {
+    &-title {
       ${flexCenter};
       padding: 0 3rem;
+      text-align: center;
 
       span {
         ${font_luckyGuy};
@@ -31,9 +32,9 @@ export default styled.header`
       }
     }
 
-    &_button {
+    /* &-button {
       margin-right: 3rem;
       ${cta_button};
-    }
+    } */
   }
 `;

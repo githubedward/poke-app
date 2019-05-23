@@ -1,7 +1,4 @@
-import styled, {
-  StyledFunction,
-  ThemedStyledFunction
-} from "styled-components";
+import styled from "styled-components";
 import { flexCenter, boxShadowBotTight } from "../shared-styles/styles.global";
 import { color, fWeight, fSize } from "../shared-styles/styles.guide";
 import { fadeIn } from "../shared-styles/styles.animation";
@@ -17,7 +14,7 @@ export default styled.div`
     border-radius: 5px;
     ${boxShadowBotTight(color.gray)};
 
-    &_input {
+    &-input {
       padding: 0.75rem 1rem;
       border: none;
       border-radius: 5px;
@@ -43,7 +40,7 @@ export default styled.div`
       }
     }
 
-    &_suggestions {
+    &-suggestions {
       width: 100%;
 
       li {

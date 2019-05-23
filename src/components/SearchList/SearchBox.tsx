@@ -20,12 +20,12 @@ export default function SearchBox({
     <Container>
       <form className="search">
         <input
-          className="search_input"
+          className="search-input"
           onChange={onTextChanged}
           placeholder="Search for your pokemon"
           value={input}
         />
-        <ul className="search_suggestions">
+        <ul className="search-suggestions">
           {isSuggestions &&
             suggestions.map((pokemon: IPokemonGen, index: number) => (
               <Suggestion

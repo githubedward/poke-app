@@ -7,6 +7,7 @@ export default styled.div`
 
   main {
     ${flexCenter};
+    align-items: flex-start;
     ${borderBox};
     /* flex-wrap: wrap; */
     width: 100%;

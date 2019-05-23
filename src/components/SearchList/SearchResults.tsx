@@ -15,7 +15,7 @@ export default function Results(props: IProps): JSX.Element {
         <ul>
           {results.map((result: IPokemonGen) => (
             <li key={result.id} className="result">
-              <div className="result_left">
+              <div className="result-left">
                 <img src={result.sprite} alt="pokemon-sprite" />
                 <div>
                   <div>
@@ -27,11 +27,11 @@ export default function Results(props: IProps): JSX.Element {
                 </div>
               </div>
               <button
-                className="result_right"
+                className="result-right"
                 type="button"
                 onClick={() => onPreview(result.id)}
               >
-                Select
+                See stats
               </button>
             </li>
           ))}

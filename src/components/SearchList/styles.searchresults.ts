@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {
   flexCenter,
-  cta_button,
   button,
   boxShadowBotTight
 } from "../shared-styles/styles.global";
@@ -23,6 +22,7 @@ export default styled.div`
     .result {
       ${fadeIn};
       ${flexCenter};
+      flex-wrap: wrap;
       justify-content: space-between;
       width: 100%;
       padding: 0 2rem;
@@ -32,7 +32,7 @@ export default styled.div`
         border-bottom: none;
       }
 
-      &_left {
+      &-left {
         ${flexCenter};
 
         img {
@@ -46,7 +46,7 @@ export default styled.div`
         }
       }
 
-      &_right {
+      &-right {
         ${button("white", color.theme3, color.theme3)};
       }
 
