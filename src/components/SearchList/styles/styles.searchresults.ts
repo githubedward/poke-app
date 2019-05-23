@@ -3,9 +3,9 @@ import {
   flexCenter,
   button,
   boxShadowBotTight
-} from "../shared-styles/styles.global";
-import { color, fWeight } from "../shared-styles/styles.guide";
-import { fadeIn } from "../shared-styles/styles.animation";
+} from "../../shared-styles/styles.global";
+import { color, fWeight } from "../../shared-styles/styles.guide";
+import { fadeIn } from "../../shared-styles/styles.animation";
 
 export default styled.div`
   ${flexCenter};

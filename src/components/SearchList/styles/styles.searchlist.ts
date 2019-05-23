@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { flexCenter, boxShadowAll } from "../shared-styles/styles.global";
-import { color } from "../shared-styles/styles.guide";
+import { flexCenter, boxShadowAll } from "../../shared-styles/styles.global";
+import { color } from "../../shared-styles/styles.guide";
 
 export default styled.div`
   ${flexCenter}

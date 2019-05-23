@@ -40,3 +40,19 @@ const fade = keyframes`
 export const fadeIn = css`
   animation: ${fade} 0.5s ease-out;
 `;
+
+export const bgChange = (pColor: string) => {
+  const colorChange = keyframes`
+  from {
+    background-color: ${pColor};
+    color: white;
+  }
+  to {
+    background-color: none;
+  }
+`;
+
+  return css`
+    animation: ${colorChange} 1s ease;
+  `;
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "./styles.searchbox";
+import Container from "./styles/styles.searchbox";
 import { IPokemonGen } from "../../services/api";
 
 interface IProps {

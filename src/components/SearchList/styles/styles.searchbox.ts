@@ -1,10 +1,16 @@
 import styled from "styled-components";
-import { flexCenter, boxShadowBotTight } from "../shared-styles/styles.global";
-import { color, fWeight, fSize } from "../shared-styles/styles.guide";
-import { fadeIn } from "../shared-styles/styles.animation";
+import {
+  flexCenter,
+  boxShadowBotTight
+} from "../../shared-styles/styles.global";
+import { shake, bgChange } from "../../shared-styles/styles.animation";
+import { color, fWeight, fSize } from "../../shared-styles/styles.guide";
+import { fadeIn } from "../../shared-styles/styles.animation";
 
 export default styled.div`
   ${flexCenter};
+  ${shake};
+
   width: 100%;
 
   .search {
@@ -15,6 +21,7 @@ export default styled.div`
     ${boxShadowBotTight(color.gray)};
 
     &-input {
+      ${bgChange(color.theme2)};
       padding: 0.75rem 1rem;
       border: none;
       border-radius: 5px;

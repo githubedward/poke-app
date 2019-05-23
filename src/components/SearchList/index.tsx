@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Container from "./styles.searchlist";
+import Container from "./styles/styles.searchlist";
 import SearchBox from "./SearchBox";
 import SearchResults from "./SearchResults";
 import { IPokemonGen } from "../../services/api";
