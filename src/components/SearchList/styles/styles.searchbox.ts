@@ -15,10 +15,36 @@ export default styled.div`
 
   .search {
     ${flexCenter};
+    position: relative;
     flex-direction: column;
     width: 100%;
     border-radius: 5px;
     ${boxShadowBotTight(color.gray)};
+
+    &-button {
+      ${flexCenter};
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-radius: 0 5px 5px 0;
+      border: none;
+      background: none;
+      outline: none;
+
+      &-icon {
+        height: 3rem;
+        padding: 0.5rem;
+        fill: ${color.theme2};
+        border-radius: 0 5px 5px 0;
+
+        :hover {
+          height: 3.15rem;
+        }
+        :active {
+          height: 3.25rem;
+        }
+      }
+    }
 
     &-input {
       ${bgChange(color.theme2)};
@@ -37,13 +63,14 @@ export default styled.div`
 
         ::placeholder {
           color: ${color.superdarkgray};
+          font-weight: ${fWeight.light};
         }
       }
 
       ::placeholder {
         font-family: "Roboto", sans-serif;
         font-weight: ${fWeight.lighter};
-        color: ${color.gray};
+        color: ${color.darkgray};
       }
     }
 

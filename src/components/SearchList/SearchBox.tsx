@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "./styles/styles.searchbox";
 import { IPokemonGen } from "../../services/api";
+import IconSearch from "../shared-icons/IconSearch";
 
 interface IProps {
   onTextChanged: any;
@@ -18,13 +19,22 @@ export default function SearchBox({
   const isSuggestions = suggestions.length > 0;
   return (
     <Container>
-      <form className="search">
+      <form
+        className="search"
+        onSubmit={(e: any) => {
+          e.preventDefault();
+          if (input.length > 0) onSelectSuggestion();
+        }}
+      >
         <input
           className="search-input"
           onChange={onTextChanged}
           placeholder="Search for your pokemon"
           value={input}
         />
+        <button type="submit" className="search-button">
+          <IconSearch className="search-button-icon" />
+        </button>
         <ul className="search-suggestions">
           {isSuggestions &&
             suggestions.map((pokemon: IPokemonGen, index: number) => (
