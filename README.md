@@ -2,6 +2,8 @@
 
 > A simple app where you can search names of 300 pokemons using an autocomplete search bar
 
+> This app gets data from https://pokeapi.co/
+
 > Demo link: https://poke-search.netlify.com
 
 ### Clone
