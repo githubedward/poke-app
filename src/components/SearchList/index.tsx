@@ -43,7 +43,6 @@ export default function SearchList(props: IProps): JSX.Element {
 
   return (
     <Container>
-      {/* <h1>SearchList</h1> */}
       <SearchBox
         onTextChanged={onTextChanged}
         suggestions={suggestions}

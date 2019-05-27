@@ -9,11 +9,12 @@ import API, { IPokemonDetails, IPokemonGen } from "../services/api";
 export default function App(): JSX.Element {
   const [list, setList] = useState<IPokemonGen[]>([]);
   const [preview, setPreview] = useState<IPokemonDetails | null>(null);
+  const listNothing = list.length === 0;
 
   useEffect(() => {
-    if (list.length === 0) {
+    if (listNothing) {
       const getPokemons = async () => {
-        const pokemonList = (await API.getPokemonList(150)) as IPokemonGen[];
+        const pokemonList = (await API.getPokemonList(300)) as IPokemonGen[];
         setList(pokemonList);
       };
       getPokemons();

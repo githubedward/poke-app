@@ -21,6 +21,7 @@ export default styled.div`
   .preview-container {
     ${fadeIn};
     ${flexCenter};
+    flex-wrap: wrap;
 
     img {
       height: 12rem;
